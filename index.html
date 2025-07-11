@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning App with Login</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div id="auth-container" class="auth-container">
+    <h2 id="auth-title">Login</h2>
+    <form id="auth-form">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit" id="auth-btn">Login</button>
+    </form>
+    <p id="toggle-auth">Don't have an account? <span id="toggle-link">Sign Up</span></p>
+  </div>
+
+  <div id="app-container" class="app-container hidden">
+    <header class="hero">
+      <div class="hero-text">
+        <h1>Learning App</h1>
+        <p>Practice vocabulary, grammar, and quizzes daily!</p>
+      </div>
+    </header>
+
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="openTab('vocab')">Vocabulary</button>
+      <button class="tab-btn" onclick="openTab('grammar')">Grammar</button>
+      <button class="tab-btn" onclick="openTab('lessons')">Lessons</button>
+      <button class="tab-btn" onclick="openTab('quiz')">Quiz</button>
+      <button class="tab-btn" onclick="logout()">Logout</button>
+    </nav>
+
+    <main>
+      <section id="vocab" class="tab-content active">
+        <div class="flashcard-container">
+          <div id="flashcard" class="flashcard">
+            <div id="flashcard-front">Word</div>
+            <div id="flashcard-back">
+              <div class="translation">Translation</div>
+              <div class="part-of-speech">Noun</div>
+              <div class="meaning">Meaning of the word goes here.</div>
+              <div class="example">Example usage of the word.</div>
+            </div>
+          </div>
+          <button id="flipBtn" onclick="flipCard()">Flip</button>
+          <button id="nextBtn" onclick="nextCard()">Next</button>
+        </div>
+      </section>
+
+      <section id="grammar" class="tab-content">
+        <ul id="grammar-list">
+          <li>Present Simple Tense</li>
+          <li>Past Continuous Tense</li>
+          <li>Future Perfect Tense</li>
+          <li>Active and Passive Voice</li>
+        </ul>
+      </section>
+
+      <section id="lessons" class="tab-content">
+        <div id="lesson-content">
+          Lesson 1: Greetings in English.
+        </div>
+        <button id="nextLessonBtn" onclick="nextLesson()">Next Lesson</button>
+      </section>
+
+      <section id="quiz" class="tab-content">
+        <div id="quiz-question">What is the capital of France?</div>
+        <div id="quiz-options">
+          <button onclick="selectOption(this, false)">Berlin</button>
+          <button onclick="selectOption(this, true)">Paris</button>
+          <button onclick="selectOption(this, false)">Rome</button>
+          <button onclick="selectOption(this, false)">Madrid</button>
+        </div>
+        <button id="nextQuizBtn" onclick="nextQuiz()">Next Question</button>
+        <div id="quiz-result"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
